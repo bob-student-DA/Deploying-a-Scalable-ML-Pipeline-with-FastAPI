@@ -6,7 +6,7 @@ git config --global pull.rebase false
 
 #---Conda---
 if [ ! -d "$HOME/miniconda3" ]; then
-   curl -o miniconda.sh https://repo.anaconda.com/miniconda/Minconda3-latest-Linux-x86_64.sh
+   curl -o miniconda.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
    bash miniconda.sh -b -p $HOME/miniconda3
 fi
 
