@@ -13,9 +13,11 @@ def test_train_model():
     model = train_model(X_train, y_train)
     assert isinstance(model, RandomForestClassifier)
 
+
 def test_inference():
     """
-    Test that inference returns predictions with the same number of rows as the input.
+    Test that inference returns predictions with the same number of
+    rows as the input.
     """
     X_train = np.array([[1, 2], [3, 4], [5, 6], [7, 8]])
     y_train = np.array([0, 1, 0, 1])
