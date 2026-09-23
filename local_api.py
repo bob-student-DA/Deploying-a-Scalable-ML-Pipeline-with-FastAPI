@@ -1,5 +1,3 @@
-import json
-
 import requests
 
 r = requests.get("http://127.0.0.1:8000")
@@ -7,6 +5,13 @@ r = requests.get("http://127.0.0.1:8000")
 print(f"Status Code: {r.status_code}")
 print(f"Result: {r.json()['message']}")
 
+
+# Log in to get an access token
+login_resp = requests.post(
+    "http://127.0.0.1:8000/token",
+    data={"username": "bob", "password": "testpassword123"},
+)
+token = login_resp.json()["access_token"]
 
 data = {
     "age": 37,
@@ -25,7 +30,11 @@ data = {
     "native-country": "United-States",
 }
 
-r = requests.post("http://127.0.0.1:8000/data/", json=data)
+r = requests.post(
+    "http://127.0.0.1:8000/data/",
+    headers={"Authorization": f"Bearer {token}"},
+    json=data,
+)
 
 print(f"Status Code: {r.status_code}")
 print(f"Result: {r.json()['result']}")
